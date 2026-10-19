@@ -1,0 +1,46 @@
+SKYGUARD HACKATHON START GUIDE
+==============================
+
+Before the event
+----------------
+1. Bring the full project folder, including skyguard_model_package/ with both
+   lstm_autoencoder_best.pt and robust_scaler.pkl. Keep the files together.
+2. Install Python 3.12 on the demo computer. The PyTorch model dependency does
+   not currently install in the Python 3.15 environment shown in the error.
+3. Make sure the computer has internet access for location search and weather
+   data. The dashboard also has synthetic sample data for an offline demo.
+
+First setup on the demo computer (macOS/Linux)
+----------------------------------------------
+Open Terminal in the project folder and run:
+
+    python3.12 -m venv .venv312
+    source .venv312/bin/activate
+    python -m pip install -r requirements.txt
+    python -m uvicorn main:app --host 127.0.0.1 --port 8000
+
+If the project already has a working .venv312 environment, activate it and skip
+the environment creation and package installation steps:
+
+    source .venv312/bin/activate
+    python -m uvicorn main:app --host 127.0.0.1 --port 8000
+
+Do not use a virtual environment created with Python 3.15. If the shell prompt
+shows (.venv), run `deactivate` before activating .venv312.
+
+Open the demo
+-------------
+Visit http://127.0.0.1:8000 in the browser on the same computer. Type a city or
+town, click Fetch live weather, and let the dashboard fill the latest 24 hourly
+model estimates and run the SkyGuard diagnosis. Weather refreshes every 15
+minutes. Use Load sample data if the venue internet is unavailable.
+
+Important demo notes
+--------------------
+- Keep the terminal window running while presenting. Press Ctrl+C to stop.
+- If port 8000 is already occupied, stop the other server or use --port 8001 and
+  open http://127.0.0.1:8001 instead.
+- Location search and weather estimates come from Open-Meteo and require internet.
+- These are model-based weather estimates, not readings from a physical AWS
+  sensor. Describe the anomaly result as a demonstration of the SkyGuard model.
+- Do not use the development server as a public production deployment.

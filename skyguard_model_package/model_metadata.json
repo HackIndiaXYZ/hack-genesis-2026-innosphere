@@ -1,0 +1,16 @@
+{
+    "features": [
+        "temperature_C",
+        "pressure_hPa",
+        "relative_humidity_percent",
+        "hour_sin",
+        "hour_cos"
+    ],
+    "window_size": 24,
+    "dynamic_threshold": 0.037624,
+    "metrics": {
+        "recall": 0.7,
+        "accuracy": 0.92,
+        "precision": 0.48
+    }
+}

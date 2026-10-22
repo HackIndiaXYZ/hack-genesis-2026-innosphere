@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071521">
+    <title>
+      SkyGuard | AWS Monitor
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <a class="brand" href="/">
+          <span class="brand-mark">
+            S
+          </span>
+          <span>
+            skyguard
+            <span class="brand-dot">
+              .
+            </span>
+            <small>
+              ATMOSPHERIC INTELLIGENCE
+            </small>
+          </span>
+        </a>
+        <div class="side-label">
+          WORKSPACE
+        </div>
+        <a class="nav-item active" href="#overview">
+          <span class="nav-icon">
+            ◈
+          </span>
+          Overview
+        </a>
+        <a class="nav-item" href="#telemetry">
+          <span class="nav-icon">
+            ⌁
+          </span>
+          Telemetry input
+        </a>
+        <a class="nav-item" href="/docs" target="_blank">
+          <span class="nav-icon">
+            ↗
+          </span>
+          API reference
+        </a>
+        <div class="sidebar-bottom">
+          <div class="station-chip">
+            <span class="pulse">
+            </span>
+            <div>
+              <b>
+                DELHI AWS
+              </b>
+              <small>
+                STATION AWS-DELHI-001
+              </small>
+            </div>
+          </div>
+          <div class="version">
+            SKYGUARD ENGINE
+            <span>
+              v1.0.0
+            </span>
+          </div>
+        </div>
+      </aside>
+      <main class="main" id="overview">
+        <header class="topbar">
+          <div class="breadcrumb">
+            MONITORING
+            <span>
+              /
+            </span>
+            OVERVIEW
+          </div>
+          <div class="top-right">
+            <span id="clock">
+              --:-- IST
+            </span>
+            <span class="health-pill">
+              <i id="health-dot">
+              </i>
+              <span id="health-text">
+                CHECKING ENGINE
+              </span>
+            </span>
+          </div>
+        </header>
+        <section class="welcome">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-line">
+              </span>
+              REAL-TIME TELEMETRY ASSURANCE
+            </div>
+            <h1>
+              Weather station
+              <br>
+              <em>
+                integrity monitor.
+              </em>
+            </h1>
+            <p>
+              Detect sensor faults, suppress severe-weather false alarms, and recover trusted readings.
+            </p>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <div class="orbit orbit-one">
+            </div>
+            <div class="orbit orbit-two">
+            </div>
+            <div class="art-core">
+              ☼
+            </div>
+            <span class="art-node node-a">
+              TEMP
+            </span>
+            <span class="art-node node-b">
+              HUMIDITY
+            </span>
+            <span class="art-node node-c">
+              PRESSURE
+            </span>
+          </div>
+        </section>
+        <section class="metrics">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>
+                MODEL ACCURACY
+              </span>
+              <span class="metric-icon">
+                ◉
+              </span>
+            </div>
+            <div class="metric-value">
+              92
+              <span>
+                %
+              </span>
+            </div>
+            <div class="metric-foot">
+              <span class="metric-bar">
+                <i style="width:92%">
+                </i>
+              </span>
+              <span>
+                VALIDATION
+              </span>
+            </div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>
+                ANOMALY RECALL
+              </span>
+              <span class="metric-icon">
+                ⌁
+              </span>
+            </div>
+            <div class="metric-value">
+              70
+              <span>
+                %
+              </span>
+            </div>
+            <div class="metric-foot">
+              <span class="metric-bar amber">
+                <i style="width:70%">
+                </i>
+              </span>
+              <span>
+                VALIDATION
+              </span>
+            </div>
+          </article>
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>
+                ACTIVE WINDOW
+              </span>
+              <span class="metric-icon">
+                ◷
+              </span>
+            </div>
+            <div class="metric-value">
+              24
+              <span class="unit">
+                HRS
+              </span>
+            </div>
+            <div class="metric-note">
+              Chronological telemetry sequence
+            </div>
+          </article>
+          <article class="metric-card threshold-card">
+            <div class="metric-top">
+              <span>
+                DETECTION THRESHOLD
+              </span>
+              <span class="metric-icon">
+                ⌗
+              </span>
+            </div>
+            <div class="metric-value threshold-value">
+              0.037624
+            </div>
+            <div class="metric-note">
+              Reconstruction error boundary
+            </div>
+          </article>
+        </section>
+        <section class="workspace" id="telemetry">
+          <div class="panel input-panel">
+            <div class="panel-heading">
+              <div>
+                <div class="eyebrow small">
+                  <span class="eyebrow-line">
+                  </span>
+                  INGESTION
+                </div>
+                <h2>
+                  Telemetry window
+                </h2>
+              </div>
+              <button class="text-button" id="sample-btn">
+                Load sample data
+              </button>
+            </div>
+            <div class="form-meta">
+              <label class="station-label" for="location-input">
+                LOCATION
+              </label>
+              <input id="location-input" value="Delhi" maxlength="100" placeholder="City, country">
+              <button class="text-button weather-button" id="weather-btn" type="button">
+                Fetch live weather
+              </button>
+              <span class="window-count">
+                <b>
+                  24
+                </b>
+                HOURLY READINGS
+              </span>
+            </div>
+            <div class="weather-meta" id="weather-meta">Enter a city and fetch recent hourly weather to fill the readings.</div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      HOUR
+                    </th>
+                    <th>
+                      TEMP
+                      <small>
+                        °C
+                      </small>
+                    </th>
+                    <th>
+                      PRESSURE
+                      <small>
+                        hPa
+                      </small>
+                    </th>
+                    <th>
+                      HUMIDITY
+                      <small>
+                        %
+                      </small>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="readings-body">
+                </tbody>
+              </table>
+            </div>
+            <div class="form-footer">
+              <span class="form-hint">
+                <span class="hint-icon">
+                  i
+                </span>
+                Weather estimates are sourced from Open-Meteo and refresh every 15 minutes.
+              </span>
+              <button class="run-button" id="run-btn">
+                <span>
+                  Run diagnostics
+                </span>
+                <span>
+                  →
+                </span>
+              </button>
+            </div>
+            <div class="error-message" id="error-message" role="alert">
+            </div>
+          </div>
+          <div class="panel result-panel">
+            <div class="panel-heading">
+              <div>
+                <div class="eyebrow small">
+                  <span class="eyebrow-line">
+                  </span>
+                  ANALYSIS
+                </div>
+                <h2>
+                  Diagnosis report
+                </h2>
+              </div>
+              <span class="report-icon">
+                ⌁
+              </span>
+            </div>
+            <div class="empty-state" id="empty-state">
+              <div class="empty-graphic">
+                <span>
+                  ⌁
+                </span>
+                <i>
+                </i>
+                <i>
+                </i>
+                <i>
+                </i>
+              </div>
+              <h3>
+                Awaiting telemetry
+              </h3>
+              <p>
+                Submit a 24-hour window to see the station health report.
+              </p>
+            </div>
+            <div class="report hidden" id="report">
+              <div class="status-banner" id="status-banner">
+                <span class="status-symbol" id="status-symbol">
+                  ✓
+                </span>
+                <div>
+                  <small>
+                    STATION STATUS
+                  </small>
+                  <strong id="result-status">
+                    HEALTHY
+                  </strong>
+                </div>
+                <span class="alert-tag" id="alert-tag">
+                  NO ALERT
+                </span>
+              </div>
+              <div class="fault-row">
+                <span>
+                  FAULT CLASSIFICATION
+                </span>
+                <b id="fault-type">
+                  NORMAL
+                </b>
+              </div>
+              <div class="error-meter">
+                <div>
+                  <span>
+                    RECONSTRUCTION ERROR
+                  </span>
+                  <b id="mse">
+                    —
+                  </b>
+                </div>
+                <div class="meter-track">
+                  <i id="meter-fill">
+                  </i>
+                  <span>
+                  </span>
+                </div>
+                <div class="meter-labels">
+                  <span>
+                    0
+                  </span>
+                  <span id="threshold-label">
+                    THRESHOLD 0.037624
+                  </span>
+                </div>
+              </div>
+              <div class="values-grid">
+                <div class="values-title">
+                  CURRENT READING
+                  <span>
+                    OBSERVED
+                    <i>
+                    </i>
+                    RECOVERED
+                  </span>
+                </div>
+                <div class="value-row">
+                  <span>
+                    Temperature
+                  </span>
+                  <b id="obs-temp">
+                    —
+                  </b>
+                  <b id="heal-temp">
+                    —
+                  </b>
+                </div>
+                <div class="value-row">
+                  <span>
+                    Pressure
+                  </span>
+                  <b id="obs-pressure">
+                    —
+                  </b>
+                  <b id="heal-pressure">
+                    —
+                  </b>
+                </div>
+                <div class="value-row">
+                  <span>
+                    Humidity
+                  </span>
+                  <b id="obs-humidity">
+                    —
+                  </b>
+                  <b id="heal-humidity">
+                    —
+                  </b>
+                </div>
+              </div>
+              <div class="report-note" id="report-note">
+                Kalman filter recovery is based on the preceding 23 readings.
+              </div>
+            </div>
+            <div class="result-bottom">
+              <span class="result-light">
+              </span>
+              LSTM AUTOENCODER
+              <span class="divider">
+                /
+              </span>
+              KALMAN SELF-HEALING
+            </div>
+          </div>
+        </section>
+        <footer>
+          SKYGUARD
+          <span>
+            ·
+          </span>
+          ATMOSPHERIC SENSOR RELIABILITY
+          <span class="footer-right">
+            DATA: <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">OPEN-METEO</a> · LSTM + KALMAN FILTER
+          </span>
+        </footer>
+      </main>
+    </div>
+    <script src="/assets/app.js">
+    </script>
+  </body>
+</html>

@@ -6,6 +6,8 @@ import torch
 import torch.nn as nn
 from typing import List, Optional
 from fastapi import FastAPI, HTTPException, status
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 # =========================================================================
@@ -102,6 +104,13 @@ app = FastAPI(
     description="Real-Time Meteorological Fault Detection and Self-Healing Telemetry API",
     version="1.0.0"
 )
+
+WEB_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "web")
+app.mount("/assets", StaticFiles(directory=WEB_DIR), name="assets")
+
+@app.get("/", include_in_schema=False)
+def dashboard():
+    return FileResponse(os.path.join(WEB_DIR, "index.html"))
 
 # Global model and scaler holders
 model = AWSAutoencoder(n_features=5, hidden_dim=64, latent_dim=32).to(DEVICE)

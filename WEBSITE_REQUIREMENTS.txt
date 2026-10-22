@@ -1,0 +1,44 @@
+SkyGuard AWS Anomaly Detection Website
+
+Purpose
+-------
+Provide a browser dashboard for submitting hourly weather station telemetry to
+the SkyGuard API and viewing anomaly detection and self-healing results.
+
+Runtime requirements
+--------------------
+- Python 3.12 (required for the currently supported PyTorch installation)
+- Install Python packages with: pip install -r requirements.txt
+- Keep the trained model artifacts in skyguard_model_package/:
+  - lstm_autoencoder_best.pt
+  - robust_scaler.pkl
+- Start from this project directory with: python -m uvicorn main:app --reload
+- Open http://127.0.0.1:8000/ in a browser.
+
+Dashboard requirements
+----------------------
+- Display system health and model artifact readiness.
+- Let users enter a location and load exactly 24 chronological readings.
+- Each reading contains temperature (C), pressure (hPa), humidity (%), and hour
+  (0-23).
+- Submit readings to POST /api/v1/diagnose.
+- Show healthy/anomaly status, fault classification, alert state, reconstruction
+  error and threshold, plus observed and healed current values.
+- Provide sample data and clear validation/API error feedback.
+- Search a city or town and populate the 24-hour window from Open-Meteo.
+- Refresh selected-location weather and rerun diagnosis every 15 minutes.
+- Display that these are model-based weather estimates, not live AWS sensor readings.
+- Require an internet connection for location lookup and weather refresh; keep
+  synthetic sample data available for offline demos.
+
+API
+---
+- GET /health reports service and artifact status.
+- POST /api/v1/diagnose analyzes a 24-hour telemetry window.
+- GET /docs exposes the FastAPI interactive API documentation.
+
+Weather data
+------------
+- Location search uses the Open-Meteo Geocoding API.
+- Hourly temperature, surface pressure, and relative humidity use the Open-Meteo
+  Forecast API. The page shows a visible attribution link.
